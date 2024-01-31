@@ -29,5 +29,12 @@
 {% endblock %}
 
 {% block scripts %}
+
+<script>
+  var csvUrl = "{% static 'map_data/kenya-population.csv' %}";
+  var geoJsonUrl = "{% static 'map_data/kenyan-counties.geojson' %}";
+  console.log(csvUrl);
+  console.log(geoJsonUrl);
+</script>
 <script src="{% static "js/map.js" %}"></script>
 {% endblock scripts %}
