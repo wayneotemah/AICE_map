@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AICE Map</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/folium/folium.css" />
+    <link rel="stylesheet" href="{% static "css/tailwind/tailwind.min.css" %} ">
+    <link rel="icon" type="image/png" sizes="32x32" href="shuffle-for-tailwind.png">
+    <script src="{% static "js/main.js" %}"></script>
+    {% block styles %}
+    {% endblock styles %}
+</head>
+<body class="antialiased bg-body text-body font-body">
+    <div class="">
+                
+        <section class="relative mt-0">
+            {% block side_navbar %}
+            {% endblock side_navbar %}
+
+            {% block content %}
+            {% endblock content %}
+
+            {% block footer %}
+            {% endblock footer %}
+
+
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="{% static "js/charts-demo.js" %} "></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/folium/folium.js"></script>
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+</html>
