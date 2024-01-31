@@ -24,6 +24,33 @@ function createMap() {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(kenyaMap);
+
+    // Define the legend
+    const legend = L.control({position: 'bottomleft'});
+
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0, 20000, 50000, 100000, 200000, 500000, 1000000],
+            labels = ['#C0392B', '#9B59B6', '#2980B9', '#8E44AD', '#27AE60', '#16A085', '#007BA7'];
+
+        // Apply CSS styles to the div
+        div.style.backgroundColor = 'rgba(255, 255, 255, 0.5)'; // Semi-transparent white background
+        div.style.padding = '5px';
+
+        // Loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + labels[i] + '; width: 10px; height: 10px; display: inline-block;"></i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }
+
+        return div;
+    };
+
+    // Add the legend to the map
+    legend.addTo(kenyaMap);
+
+    
  }
 
 
@@ -112,14 +139,13 @@ function processData(csvData, geojson) {
 
 // Function to get color based on population density
 function getColor(population) {
-    return population > 1000000 ? '#800026' :
-           population > 500000  ? '#BD0026' :
-           population > 200000  ? '#E31A1C' :
-           population > 100000  ? '#FC4E2A' :
-           population > 50000   ? '#FD8D3C' :
-           population > 20000   ? '#FEB24C' :
-           population > 10000   ? '#FED976' :
-                                  '#FFEDA0';
+    return population > 1000000 ? '#007BA7' :
+           population > 500000 ? '#16A085' :
+           population > 200000 ? '#27AE60' :
+           population > 100000 ? '#2980B9' :
+           population > 50000   ? '#8E44AD' :
+           population > 20000   ? '#9B59B6' :
+                                 '#C0392B';
 }
 
 
