@@ -1,0 +1,41 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "css/map.css" %}">
+{% endblock styles %}
+
+
+{% block side_navbar%}
+{% include "base/side_nav.html" %}
+{% endblock %}
+{% block content %}
+<div class="mx-0 xl:ml-xs3">
+  <div class="flex flex-wrap mx-0 mb-0 md:mb-0">
+    <div class="w-full md:w-2/3 px-0 mb-0 md:mb-0">
+      <section class="py-0 mb-0 w-100 ">
+        {% comment %} <div class="w-full md:w-2/3 px-4 mb-4 md:mb-0"> {% endcomment %}
+
+          <div id="map">
+            Map
+          </div>
+
+        {% comment %} </div> {% endcomment %}
+      </section>
+    </div>
+      {% include "analytics/kenyan_map_analytics.html" %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+  var csvUrl = "{% static 'map_data/kenya-population.csv' %}";
+  var geoJsonUrl = "{% static 'map_data/kenyan-counties.geojson' %}";
+  console.log(csvUrl);
+  console.log(geoJsonUrl);
+</script>
+<script src="{% static "js/kenyanmap.js" %}"></script>
+{% endblock scripts %}

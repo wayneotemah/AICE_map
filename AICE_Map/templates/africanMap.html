@@ -23,7 +23,7 @@
         {% comment %} </div> {% endcomment %}
       </section>
     </div>
-      {% include "analytics/map_analytics.html" %}
+      {% include "analytics/african_map_analytics.html" %}
     </div>
   </div>
 </div>
@@ -32,10 +32,10 @@
 {% block scripts %}
 
 <script>
-  var csvUrl = "{% static 'map_data/kenya-population.csv' %}";
-  var geoJsonUrl = "{% static 'map_data/kenyan-counties.geojson' %}";
+  var csvUrl = "{% static 'map_data/AICE_countires.csv' %}";
+  var geoJsonUrl = "{% static 'map_data/africa.geojson' %}";
   console.log(csvUrl);
   console.log(geoJsonUrl);
 </script>
-<script src="{% static "js/map.js" %}"></script>
+<script src="{% static "js/africanmap.js" %}"></script>
 {% endblock scripts %}

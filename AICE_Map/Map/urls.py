@@ -3,5 +3,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("", views.map, name="map"),
+    path("", views.kenyanMap, name="kenyanMap"),
+    path("africa", views.africanMap, name="africanMap"),
 ]
