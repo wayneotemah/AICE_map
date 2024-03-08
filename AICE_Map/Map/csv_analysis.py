@@ -23,3 +23,8 @@ def get_county_total_data():
         "female": data[2],
         "intersex": data[3],
     }
+
+
+def get_county_data():
+    data = df.iloc[7:]
+    return data.to_dict(orient="records")

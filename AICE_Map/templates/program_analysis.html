@@ -1,0 +1,112 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static "css/map.css" %}">
+{% endblock styles %}
+
+
+{% block side_navbar%}
+{% include "base/side_nav.html" %}
+{% endblock %}
+{% block content %}
+<div class="mx-0 xl:ml-xs3">
+  <div class="flex flex-wrap mx-0 mb-0 md:mb-0">
+    <section class="py-4 overflow-hidden">
+        
+        <div class="container mt-3 px-4 mx-auto">
+          <div class="flex flex-wrap items-center justify-between mb-10 m-2">
+            <div class="w-auto p-2">
+              <h2 class="font-heading text-3xl font-semibold">County Analysis</h2>
+            </div>
+          </div>
+          <div class="flex flex-wrap m-3">
+            <div class="w-full sm:w-1/3 p-3 bg-white border overflow-hidden rounded-xl">
+                {% comment %} <section class="py-4 overflow-hidden"> {% endcomment %}
+
+                      {% comment %} <div class="shadow-lg rounded-lg overflow-hidden"> {% endcomment %}
+                        <div class="py-3 px-5 bg-gray-50">KCB Training </div>
+                        <canvas class="p-1 ml-20 mr-20" id="chartPie"></canvas>
+                      {% comment %} </div> {% endcomment %}
+
+                {% comment %} </section> {% endcomment %}
+                <div class="p-6">
+                  <p class="mb-8 text-xl font-medium">Introduction To Data Science Training in partnership with KCB and the Mastercard Foundation</p>
+                  <div class="flex flex-wrap items-center justify-between -m-2">
+                    <div class="w-full p-2">
+                      <div class="flex justify-between mb-1">
+                        <span class="text-base font-medium text-blue-700 dark:text-white">In progress</span>
+                        <span class="text-sm font-medium text-blue-700 dark:text-white">45%</span>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 45%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="w-full sm:w-1/3 p-3">
+              <a class="inline-block h-full bg-white border overflow-hidden rounded-xl" href="#">
+                <div class="p-6">
+                  <p class="mb-8 text-xl font-medium">Management tool that tracks, gathers, and displays business data</p>
+                  <div class="flex flex-wrap items-center justify-between -m-2">
+                    <div class="w-auto p-2">
+                      <p class="text-neutral-500">Devon Lane</p>
+                    </div>
+                    <div class="w-auto p-2">
+                      {% comment %} <img src="dashy-assets/images/card-avatar2.png" alt=""> {% endcomment %}
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="w-full sm:w-1/3 p-3">
+              <a class="inline-block h-full bg-white border overflow-hidden rounded-xl" href="#">
+                <div class="p-6">
+                  <p class="mb-8 text-xl font-medium">Management tool that tracks, gathers, and displays business data</p>
+                  <div class="flex flex-wrap items-center justify-between -m-2">
+                    <div class="w-auto p-2">
+                      <p class="text-neutral-500">Cody Fisher</p>
+                    </div>
+                    <div class="w-auto p-2">
+                      {% comment %} <img src="dashy-assets/images/card-avatar.png" alt=""> {% endcomment %}
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<!-- Chart pie -->
+<script>
+  const dataPie = {
+    labels: ["Male", "Female"],
+    datasets: [
+      {
+        label: "Trainees",
+        data: [300, 100],
+        backgroundColor: [
+          "rgb(133, 105, 241)",
+          "rgb(164, 101, 241)",
+          "rgb(101, 143, 241)",
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  };
+
+  const configPie = {
+    type: "pie",
+    data: dataPie,
+    options: {},
+  };
+
+  var chartBar = new Chart(document.getElementById("chartPie"), configPie);
+</script>
+
+{% endblock scripts %}

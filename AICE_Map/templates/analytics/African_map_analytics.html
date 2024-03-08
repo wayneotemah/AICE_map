@@ -1,48 +1,37 @@
 {% load static %}
 
     <div class="mt-10 w-full md:w-1/3 px-4 mb-4 md:mb-0">
-        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight px-6">AICE Trainees Distribution </h2>
+        <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight px-6">AICE Activity Distribution </h2>
         
         <section class="py-4 overflow-hidden">
             <div class="container px-4 mx-auto">
             <div class="px-6 pt-5 pb-7 bg-white overflow-hidden border rounded-xl">
-                <h3 class="text-lg font-semibold">Kenya</h3>
-                <p class="mb-6 text-neutral-500">Africa</p>
+                <h3 class="text-lg font-semibold mb-3">Africa</h3>
+                {% comment %} <p class="mb-6 text-neutral-500">Africa</p> {% endcomment %}
                 <ul class="mb-7">
                 <li class="flex flex-wrap items-center justify-between mb-4">
                     <div class="flex flex-wrap items-center justify-between w-full mr-4">
                         <span class="font-medium">Number of Counties</span>
-                        <div class="mr-2 w-40 h-90 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">{{country_data.nOfCounties}}</div>
+                        <div class="mr-2 w-40 h-90 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">3</div>
                     </div>
                 </li>
                 <li class="flex flex-wrap items-center justify-between mb-4">
                     <div class="flex flex-wrap items-center justify-between w-full mr-4">
-                        <span class="font-medium">Total Trainees</span>
-                        <div class="mr-2 w-40 h-90 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">{{country_data.total}}</div>
+                        <span class="font-medium">Number of Programs </span>
+                        <div class="mr-2 w-40 h-90 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">20</div>
                     </div>
                 </li>
                 <li class="flex flex-wrap items-center justify-between mb-4">
                     <div class="flex flex-wrap items-center  justify-between w-full mr-4">
-                        <span class="font-medium">Total Male Trainees</span>
-                        <div class="mr-2 w-40 h-90 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">{{country_data.male}}</div>
+                        <span class="font-medium">AI and data scientist</span>
+                        <div class="mr-2 w-40 h-90 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">30</div>
                     </div>
                 </li>
-                <li class="flex flex-wrap items-center justify-between mb-4">
-                    <div class="flex flex-wrap items-center justify-between w-full mr-4">
-                        <span class="font-medium">Total Female Trainees</span>
-                        <div class="mr-2 w-40 h-90 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">{{country_data.female}}</div>
-                    </div>
-                </li>
-                <li class="flex flex-wrap items-center justify-between w-100">
-                    <div class="flex flex-wrap items-center justify-between w-full mr-4">
-                        <span class="font-medium">Total Intersex Trainees</span>
-                        <div class="mr-2 w-40 h-90 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">{{country_data.intersex}}</div>
-                    </div>
-                </li>
+
                 
                 </ul>
-                <a class="inline-flex flex-wrap items-center justify-center px-5 py-3 w-full text-center text-neutral-50 font-medium bg-gradient-purple-left hover:bg-gradient-purple-left-dark rounded-lg transition duration-300" href="{% url "africanMap" %}">
-                    <span class="font-medium">Switch to a view of Africa</span>
+                <a class="inline-flex flex-wrap items-center justify-center px-5 py-3 w-full text-center text-neutral-50 font-medium bg-gradient-purple-left hover:bg-gradient-purple-left-dark rounded-lg transition duration-300" href="{% url "kenyanMap" %}">
+                    <span class="font-medium">Switch to a view of Kenya</span>
                 </a>
             </div>
             </div>
